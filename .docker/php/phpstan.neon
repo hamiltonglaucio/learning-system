@@ -1,0 +1,11 @@
+parameters:
+    level: max
+    paths:
+        - /opt/project/src
+    autoload_files:
+        - /opt/project/vendor/autoload.php
+    memoryLimit: 4G
+    reportUnmatchedIgnoredErrors: false
+
+services:
+    # Configurações adicionais podem ser colocadas aqui

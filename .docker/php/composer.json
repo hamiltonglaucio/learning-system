@@ -1,0 +1,41 @@
+{
+  "name": "hamiltonglaucio/learning-system",
+  "description": "Sistema Educacional de aprendizado de língua estrangeira",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Hamilton Gláucio de Oliveira Júnior",
+      "email": "contato@hamiltonjunior.com.br"
+    }
+  ],
+  "config" : {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    },
+    "vendor-dir" : "../../vendor"
+  },
+  "require": {
+    "php": "^8.4",
+    "phpstan/phpstan": "^2.1.11",
+    "phpunit/phpunit": "^11.5.15",
+    "pestphp/pest": "^v3.8.1",
+    "squizlabs/php_codesniffer": "^3.12.1",
+    "friendsofphp/php-cs-fixer": "^v3.75.0",
+    "phpmd/phpmd": "^2.15.0",
+    "monolog/monolog": "^3.9.0",
+    "vlucas/phpdotenv": "^v5.6.1"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php vendor/bin/phpstan analyse",
+      "php vendor/bin/phpcs --standard=PSR2 src/",
+      "php vendor/bin/phpmd src/ text cleancode,codesize,controversial,design,naming,unusedcode"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "../../src/"
+    }
+  }
+}
