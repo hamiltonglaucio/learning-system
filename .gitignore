@@ -1,0 +1,43 @@
+# Ignore arquivos e pastas sensíveis ou temporários
+.env
+.phpunit.result.cache
+.php-cs-fixer.cache
+
+# Logs e cache
+/storage/*.log
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# Arquivos temporários de sistema
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Node (se usar Vue)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Cobertura de testes
+coverage/
+clover.xml
+
+# Cache do PHPStorm (sem ignorar .idea)
+.idea/**/shelf/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+
+# Docker
+.docker/php/phpstan.cache
+.docker/php/phpmd.cache
+.docker/php/phpcs.cache

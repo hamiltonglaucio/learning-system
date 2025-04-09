@@ -1,7 +1,8 @@
 {
   "name": "hamiltonglaucio/learning-system",
   "description": "Sistema Educacional de aprendizado de língua estrangeira",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "license": "proprietary",
   "authors": [
     {
@@ -9,28 +10,27 @@
       "email": "contato@hamiltonjunior.com.br"
     }
   ],
-  "config" : {
-    "allow-plugins": {
-      "pestphp/pest-plugin": true
-    },
-    "vendor-dir" : "../../vendor"
+  "config": {
+    "allow-plugins": {},
+    "vendor-dir": "../../vendor"
   },
   "require": {
     "php": "^8.4",
     "phpstan/phpstan": "^2.1.11",
-    "phpunit/phpunit": "^11.5.15",
-    "pestphp/pest": "^v3.8.1",
     "squizlabs/php_codesniffer": "^3.12.1",
-    "friendsofphp/php-cs-fixer": "^v3.75.0",
     "phpmd/phpmd": "^2.15.0",
     "monolog/monolog": "^3.9.0",
-    "vlucas/phpdotenv": "^v5.6.1"
+    "vlucas/phpdotenv": "^5.6.1"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.75",
+    "phpunit/phpunit": "^10.5"
   },
   "scripts": {
     "post-install-cmd": [
-      "php vendor/bin/phpstan analyse",
-      "php vendor/bin/phpcs --standard=PSR2 src/",
-      "php vendor/bin/phpmd src/ text cleancode,codesize,controversial,design,naming,unusedcode"
+      "XDEBUG_MODE=off php ../../vendor/bin/phpstan analyse",
+      "XDEBUG_MODE=off php ../../vendor/bin/phpcs --standard=PSR12 ../../src/",
+      "XDEBUG_MODE=off php -d error_reporting='E_ALL & ~E_DEPRECATED' ../../vendor/bin/phpmd ../../src/ text cleancode,codesize,controversial,design,naming,unusedcode"
     ]
   },
   "autoload": {
