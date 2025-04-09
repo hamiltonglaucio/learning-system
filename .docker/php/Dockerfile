@@ -24,6 +24,15 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-enable xdebug \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Instalação do SonarScanner
+RUN apt-get update && \
+    apt-get install -y curl unzip openjdk-17-jre && \
+    curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip && \
+    unzip sonar-scanner.zip -d /opt && \
+    ln -s /opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner /usr/local/bin/sonar-scanner && \
+    rm sonar-scanner.zip
+
+
 # Composer (direto da imagem oficial)
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
