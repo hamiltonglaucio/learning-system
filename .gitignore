@@ -41,3 +41,4 @@ clover.xml
 .docker/php/phpstan.cache
 .docker/php/phpmd.cache
 .docker/php/phpcs.cache
+sonar-project.properties
